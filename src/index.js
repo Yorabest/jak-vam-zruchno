@@ -1,30 +1,28 @@
-import pocemonCardsTpl from './templates/pocemon-cards.hbs';
+// import './node_modules/modern-normalize/modern-normalize.css';
+import imageTpl from './templates/image.hbs';
 
-const pokemonCard = document.querySelector('.js-card-container');
-const searchForm = document.querySelector('.js-search-form');
+const formRef = document.querySelector('.js-search-form');
+const rezultRef = document.querySelector('.js-card-container');
 
-let searchingPocemon = ''
+let searching = '';
+let type = '';
+let orientation = ''
 
-searchForm.addEventListener("submit", searchPocemon)
+formRef.addEventListener('submit', searchImg);
 
-function searchPocemon(e) {
-    e.preventDefault()
-    const input = e.srcElement[0];
-    // console.log(input.value);
-// console.log(e.target.value);
-    searchingPocemon = input.value;
-    fetch(`https://pokeapi.co/api/v2/pokemon/${searchingPocemon}`)
+function searchImg(e) {
+    e.preventDefault();
+
+    searching = e.srcElement[0].value;
+    type = e.srcElement[1].value;
+    orientation = e.srcElement[2].value
+
+    fetch(`https://pixabay.com/api/?key=34021222-b9c8863f050204b598fd68392&q=${searching}&image_type=${type}&orientation=${orientation}&per_page=50`)
 .then(response => response.json())
-.then(pocemon => {
-        const murkup = pocemonCardsTpl(pocemon);
-    pokemonCard.innerHTML = murkup;
-    input.value = "";
-}).catch(error => {
-    alert('Упс, такого покемона не знайдено');
-    pokemonCard.innerHTML = '';
+.then(imgs => imgs.hits)
+.then(img => {
+     const murkup = imageTpl(img);
+        console.log(img);
+        rezultRef.innerHTML = murkup;
+})    
 }
-)
-}
-
-
-

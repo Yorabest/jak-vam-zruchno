@@ -1824,35 +1824,49 @@ var templateFunction = _handlebars.default.template({
 });
 var _default = templateFunction;
 exports.default = _default;
-},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"index.js":[function(require,module,exports) {
+},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"js/plagination.js":[function(require,module,exports) {
 "use strict";
 
-var _image = _interopRequireDefault(require("./templates/image.hbs"));
+var _image = _interopRequireDefault(require("../templates/image.hbs"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-// import './node_modules/modern-normalize/modern-normalize.css';
-
-var formRef = document.querySelector('.js-search-form');
-var rezultRef = document.querySelector('.js-card-container');
+var refs = {
+  searchForm: document.querySelector('.js-search-form'),
+  loadMoreBtn: document.querySelector('[data-action="load-more"]'),
+  imgContainer: document.querySelector('.js-card-container')
+};
 var searching = '';
-var type = '';
-var orientation = '';
-formRef.addEventListener('submit', searchImg);
-function searchImg(e) {
+var page = 1;
+refs.searchForm.addEventListener('submit', onSubmit);
+refs.loadMoreBtn.addEventListener('click', onLoadMore);
+function onSubmit(e) {
   e.preventDefault();
   searching = e.srcElement[0].value;
-  type = e.srcElement[1].value;
-  orientation = e.srcElement[2].value;
-  fetch("https://pixabay.com/api/?key=34021222-b9c8863f050204b598fd68392&q=".concat(searching, "&image_type=").concat(type, "&orientation=").concat(orientation, "&per_page=50")).then(function (response) {
+  fetchImg(searching);
+}
+;
+function onLoadMore() {
+  page += 1;
+  fetchImg(searching);
+}
+function fetchImg(searching) {
+  var apiKey = '34021222-b9c8863f050204b598fd68392';
+  var url = "https://pixabay.com/api/?key=".concat(apiKey, "&q=").concat(searching, "&per_page=10&page=").concat(page);
+  // const options = {
+  //     heders: {
+  //         'X-Api-'
+  //     }
+  // }
+  return fetch(url).then(function (response) {
     return response.json();
   }).then(function (imgs) {
     return imgs.hits;
   }).then(function (img) {
     var murkup = (0, _image.default)(img);
-    console.log(img);
-    rezultRef.innerHTML = murkup;
+    // refs.imgContainer.innerHTML = murkup;
+    refs.imgContainer.insertAdjacentHTML('beforeend', murkup);
   });
 }
-},{"./templates/image.hbs":"templates/image.hbs"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../templates/image.hbs":"templates/image.hbs"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -2021,5 +2035,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/plagination.js"], null)
+//# sourceMappingURL=/plagination.cf7862d4.js.map

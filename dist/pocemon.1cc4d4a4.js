@@ -1684,7 +1684,7 @@ THE SOFTWARE.
 });
 
 ;
-},{}],"templates/image.hbs":[function(require,module,exports) {
+},{}],"templates/pocemon-cards.hbs":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1696,105 +1696,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 var templateFunction = _handlebars.default.template({
   "1": function _(container, depth0, helpers, partials, data) {
-    var helper,
-      alias1 = depth0 != null ? depth0 : container.nullContext || {},
-      alias2 = container.hooks.helperMissing,
-      alias3 = "function",
-      alias4 = container.escapeExpression,
-      lookupProperty = container.lookupProperty || function (parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined;
-      };
-    return "<div class=\"countainer\">\r\n<div class=\"img\">\r\n    <img src=" + alias4((helper = (helper = lookupProperty(helpers, "userImageURL") || (depth0 != null ? lookupProperty(depth0, "userImageURL") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
-      "name": "userImageURL",
-      "hash": {},
-      "data": data,
-      "loc": {
-        "start": {
-          "line": 4,
-          "column": 13
-        },
-        "end": {
-          "line": 4,
-          "column": 29
-        }
-      }
-    }) : helper)) + " alt=\"\">\r\n</div>\r\n<div class=\"information\">\r\n    <ul>\r\n        <li>\r\n            <p>Type: " + alias4((helper = (helper = lookupProperty(helpers, "type") || (depth0 != null ? lookupProperty(depth0, "type") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
-      "name": "type",
-      "hash": {},
-      "data": data,
-      "loc": {
-        "start": {
-          "line": 9,
-          "column": 21
-        },
-        "end": {
-          "line": 9,
-          "column": 29
-        }
-      }
-    }) : helper)) + "</p>\r\n        </li>\r\n        <li>\r\n            <p>Tags: " + alias4((helper = (helper = lookupProperty(helpers, "tags") || (depth0 != null ? lookupProperty(depth0, "tags") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
-      "name": "tags",
-      "hash": {},
-      "data": data,
-      "loc": {
-        "start": {
-          "line": 12,
-          "column": 21
-        },
-        "end": {
-          "line": 12,
-          "column": 29
-        }
-      }
-    }) : helper)) + "</p>\r\n        </li>\r\n        <li>\r\n            <p>Likes: " + alias4((helper = (helper = lookupProperty(helpers, "likes") || (depth0 != null ? lookupProperty(depth0, "likes") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
-      "name": "likes",
-      "hash": {},
-      "data": data,
-      "loc": {
-        "start": {
-          "line": 15,
-          "column": 22
-        },
-        "end": {
-          "line": 15,
-          "column": 31
-        }
-      }
-    }) : helper)) + "</p>\r\n        </li>\r\n        <li>\r\n            <p>Comments: " + alias4((helper = (helper = lookupProperty(helpers, "comments") || (depth0 != null ? lookupProperty(depth0, "comments") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
-      "name": "comments",
-      "hash": {},
-      "data": data,
-      "loc": {
-        "start": {
-          "line": 18,
-          "column": 25
-        },
-        "end": {
-          "line": 18,
-          "column": 37
-        }
-      }
-    }) : helper)) + "</p>\r\n        </li>\r\n        <li>\r\n            <p>Downloads: " + alias4((helper = (helper = lookupProperty(helpers, "downloads") || (depth0 != null ? lookupProperty(depth0, "downloads") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
-      "name": "downloads",
-      "hash": {},
-      "data": data,
-      "loc": {
-        "start": {
-          "line": 21,
-          "column": 26
-        },
-        "end": {
-          "line": 21,
-          "column": 39
-        }
-      }
-    }) : helper)) + "</p>\r\n        </li>\r\n    </ul>\r\n</div>\r\n</div>\r\n";
-  },
-  "compiler": [8, ">= 4.3.0"],
-  "main": function main(container, depth0, helpers, partials, data) {
     var stack1,
       lookupProperty = container.lookupProperty || function (parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -1802,7 +1703,79 @@ var templateFunction = _handlebars.default.template({
         }
         return undefined;
       };
-    return (stack1 = lookupProperty(helpers, "each").call(depth0 != null ? depth0 : container.nullContext || {}, depth0, {
+    return "        <ul class=\"list-group\"></ul>\r\n\r\n        <li class=\"list-group-item\">" + container.escapeExpression(container.lambda((stack1 = depth0 != null ? lookupProperty(depth0, "ability") : depth0) != null ? lookupProperty(stack1, "name") : stack1, depth0)) + "</li>\r\n";
+  },
+  "compiler": [8, ">= 4.3.0"],
+  "main": function main(container, depth0, helpers, partials, data) {
+    var stack1,
+      helper,
+      alias1 = container.escapeExpression,
+      alias2 = depth0 != null ? depth0 : container.nullContext || {},
+      alias3 = container.hooks.helperMissing,
+      alias4 = "function",
+      lookupProperty = container.lookupProperty || function (parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined;
+      };
+    return "\r\n<div class=\"card\">\r\n    <div class=\"card-img-top\">\r\n        <img src=" + alias1(container.lambda((stack1 = depth0 != null ? lookupProperty(depth0, "sprites") : depth0) != null ? lookupProperty(stack1, "front_default") : stack1, depth0)) + " alt=" + alias1((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias3, _typeof(helper) === alias4 ? helper.call(alias2, {
+      "name": "name",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 47
+        },
+        "end": {
+          "line": 4,
+          "column": 55
+        }
+      }
+    }) : helper)) + ">\r\n    </div>\r\n    <div class=\"card-body\">\r\n        <h2 class=\"card-title\">Ім'я: " + alias1((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias3, _typeof(helper) === alias4 ? helper.call(alias2, {
+      "name": "name",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 37
+        },
+        "end": {
+          "line": 7,
+          "column": 45
+        }
+      }
+    }) : helper)) + " </h2>\r\n        <p class=\"card-text\">Вага: " + alias1((helper = (helper = lookupProperty(helpers, "weight") || (depth0 != null ? lookupProperty(depth0, "weight") : depth0)) != null ? helper : alias3, _typeof(helper) === alias4 ? helper.call(alias2, {
+      "name": "weight",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 35
+        },
+        "end": {
+          "line": 8,
+          "column": 45
+        }
+      }
+    }) : helper)) + "</p>\r\n        <p class=\"card-text\">Зріст: " + alias1((helper = (helper = lookupProperty(helpers, "height") || (depth0 != null ? lookupProperty(depth0, "height") : depth0)) != null ? helper : alias3, _typeof(helper) === alias4 ? helper.call(alias2, {
+      "name": "height",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 36
+        },
+        "end": {
+          "line": 9,
+          "column": 46
+        }
+      }
+    }) : helper)) + "</p>\r\n\r\n        <p class=\"card-text\"><b>Вміння</b></p>\r\n" + ((stack1 = lookupProperty(helpers, "each").call(alias2, depth0 != null ? lookupProperty(depth0, "abilities") : depth0, {
       "name": "each",
       "hash": {},
       "fn": container.program(1, data, 0),
@@ -1810,49 +1783,45 @@ var templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 0
+          "line": 12,
+          "column": 8
         },
         "end": {
-          "line": 26,
-          "column": 9
+          "line": 16,
+          "column": 17
         }
       }
-    })) != null ? stack1 : "";
+    })) != null ? stack1 : "") + "        </ul>\r\n    </div>\r\n</div>";
   },
   "useData": true
 });
 var _default = templateFunction;
 exports.default = _default;
-},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"index.js":[function(require,module,exports) {
+},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"js/pocemon.js":[function(require,module,exports) {
 "use strict";
 
-var _image = _interopRequireDefault(require("./templates/image.hbs"));
+var _pocemonCards = _interopRequireDefault(require("../templates/pocemon-cards.hbs"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-// import './node_modules/modern-normalize/modern-normalize.css';
-
-var formRef = document.querySelector('.js-search-form');
-var rezultRef = document.querySelector('.js-card-container');
-var searching = '';
-var type = '';
-var orientation = '';
-formRef.addEventListener('submit', searchImg);
-function searchImg(e) {
+var pokemonCard = document.querySelector('.js-card-container');
+var searchForm = document.querySelector('.js-search-form');
+var searchingPocemon = '';
+searchForm.addEventListener('submit', searchPocemon);
+function searchPocemon(e) {
   e.preventDefault();
-  searching = e.srcElement[0].value;
-  type = e.srcElement[1].value;
-  orientation = e.srcElement[2].value;
-  fetch("https://pixabay.com/api/?key=34021222-b9c8863f050204b598fd68392&q=".concat(searching, "&image_type=").concat(type, "&orientation=").concat(orientation, "&per_page=50")).then(function (response) {
+  var input = e.srcElement[0];
+  searchingPocemon = input.value;
+  fetch("https://pokeapi.co/api/v2/pokemon/".concat(searchingPocemon)).then(function (response) {
     return response.json();
-  }).then(function (imgs) {
-    return imgs.hits;
-  }).then(function (img) {
-    var murkup = (0, _image.default)(img);
-    console.log(img);
-    rezultRef.innerHTML = murkup;
+  }).then(function (pocemon) {
+    var murkup = (0, _pocemonCards.default)(pocemon);
+    pokemonCard.innerHTML = murkup;
+    input.value = "";
+  }).catch(function (error) {
+    alert('Упс, такого покемона не знайдено');
+    pokemonCard.innerHTML = '';
   });
 }
-},{"./templates/image.hbs":"templates/image.hbs"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../templates/pocemon-cards.hbs":"templates/pocemon-cards.hbs"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -2021,5 +1990,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/pocemon.js"], null)
+//# sourceMappingURL=/pocemon.1cc4d4a4.js.map
