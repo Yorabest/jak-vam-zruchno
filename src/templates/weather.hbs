@@ -1,0 +1,20 @@
+
+<div class="card">
+    <p>Name: {{name}}</p>
+    <p>Time: {{locate}}</p>
+    <p>Main: {{weather.0.main}}</p>
+    <p>Description: {{weather.0.description}}</p>
+    <p>Temp: {{main.temp}}°C</p>
+    <p>Feels like:{{main.feels_like}}°C</p>
+    <p>Visibility:{{visibility}} m</p>
+    <p>Wind speed:{{wind.speed}} meter/sec</p>
+    <p>Clouds:{{clouds.all}}%</p>
+    {{#if rain.1h}}
+    <p>Rain in 1 hour:{{rain.1h}} mm</p>
+    {{/if}}
+    {{#if snow.1h}}
+    <p>Snow in 1 hour:{{snow.1h}} mm</p>
+     {{/if}}
+    {{!-- <p>{{weather.0.icon}}</p> --}}
+    {{!-- <img src="" alt="" id={{weather.0.icon}}> --}}
+</div>

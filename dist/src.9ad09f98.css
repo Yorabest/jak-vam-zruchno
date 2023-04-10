@@ -78,6 +78,8 @@ li {
 .card-cotainer {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .countainer {

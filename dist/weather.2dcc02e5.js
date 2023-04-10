@@ -1684,7 +1684,7 @@ THE SOFTWARE.
 });
 
 ;
-},{}],"templates/image.hbs":[function(require,module,exports) {
+},{}],"templates/pocemon-cards.hbs":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1696,19 +1696,169 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 var templateFunction = _handlebars.default.template({
   "1": function _(container, depth0, helpers, partials, data) {
-    var helper,
-      alias1 = depth0 != null ? depth0 : container.nullContext || {},
-      alias2 = container.hooks.helperMissing,
-      alias3 = "function",
-      alias4 = container.escapeExpression,
+    var stack1,
       lookupProperty = container.lookupProperty || function (parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
         }
         return undefined;
       };
-    return "<div class=\"countainer\">\r\n<div class=\"img\">\r\n    <img src=" + alias4((helper = (helper = lookupProperty(helpers, "userImageURL") || (depth0 != null ? lookupProperty(depth0, "userImageURL") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
-      "name": "userImageURL",
+    return "        <ul class=\"list-group\"></ul>\r\n\r\n        <li class=\"list-group-item\">" + container.escapeExpression(container.lambda((stack1 = depth0 != null ? lookupProperty(depth0, "ability") : depth0) != null ? lookupProperty(stack1, "name") : stack1, depth0)) + "</li>\r\n";
+  },
+  "compiler": [8, ">= 4.3.0"],
+  "main": function main(container, depth0, helpers, partials, data) {
+    var stack1,
+      helper,
+      alias1 = container.escapeExpression,
+      alias2 = depth0 != null ? depth0 : container.nullContext || {},
+      alias3 = container.hooks.helperMissing,
+      alias4 = "function",
+      lookupProperty = container.lookupProperty || function (parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined;
+      };
+    return "\r\n<div class=\"card\">\r\n    <div class=\"card-img-top\">\r\n        <img src=" + alias1(container.lambda((stack1 = depth0 != null ? lookupProperty(depth0, "sprites") : depth0) != null ? lookupProperty(stack1, "front_default") : stack1, depth0)) + " alt=" + alias1((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias3, _typeof(helper) === alias4 ? helper.call(alias2, {
+      "name": "name",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 47
+        },
+        "end": {
+          "line": 4,
+          "column": 55
+        }
+      }
+    }) : helper)) + ">\r\n    </div>\r\n    <div class=\"card-body\">\r\n        <h2 class=\"card-title\">Ім'я: " + alias1((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias3, _typeof(helper) === alias4 ? helper.call(alias2, {
+      "name": "name",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 37
+        },
+        "end": {
+          "line": 7,
+          "column": 45
+        }
+      }
+    }) : helper)) + " </h2>\r\n        <p class=\"card-text\">Вага: " + alias1((helper = (helper = lookupProperty(helpers, "weight") || (depth0 != null ? lookupProperty(depth0, "weight") : depth0)) != null ? helper : alias3, _typeof(helper) === alias4 ? helper.call(alias2, {
+      "name": "weight",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 35
+        },
+        "end": {
+          "line": 8,
+          "column": 45
+        }
+      }
+    }) : helper)) + "</p>\r\n        <p class=\"card-text\">Зріст: " + alias1((helper = (helper = lookupProperty(helpers, "height") || (depth0 != null ? lookupProperty(depth0, "height") : depth0)) != null ? helper : alias3, _typeof(helper) === alias4 ? helper.call(alias2, {
+      "name": "height",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 36
+        },
+        "end": {
+          "line": 9,
+          "column": 46
+        }
+      }
+    }) : helper)) + "</p>\r\n\r\n        <p class=\"card-text\"><b>Вміння</b></p>\r\n" + ((stack1 = lookupProperty(helpers, "each").call(alias2, depth0 != null ? lookupProperty(depth0, "abilities") : depth0, {
+      "name": "each",
+      "hash": {},
+      "fn": container.program(1, data, 0),
+      "inverse": container.noop,
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 8
+        },
+        "end": {
+          "line": 16,
+          "column": 17
+        }
+      }
+    })) != null ? stack1 : "") + "        </ul>\r\n    </div>\r\n</div>";
+  },
+  "useData": true
+});
+var _default = templateFunction;
+exports.default = _default;
+},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"templates/weather.hbs":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _handlebars = _interopRequireDefault(require("handlebars/dist/handlebars.runtime"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+var templateFunction = _handlebars.default.template({
+  "1": function _(container, depth0, helpers, partials, data) {
+    var stack1,
+      lookupProperty = container.lookupProperty || function (parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined;
+      };
+    return "    <p>Rain in 1 hour:" + container.escapeExpression(container.lambda((stack1 = depth0 != null ? lookupProperty(depth0, "rain") : depth0) != null ? lookupProperty(stack1, "1h") : stack1, depth0)) + " mm</p>\r\n";
+  },
+  "3": function _(container, depth0, helpers, partials, data) {
+    var stack1,
+      lookupProperty = container.lookupProperty || function (parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined;
+      };
+    return "    <p>Snow in 1 hour:" + container.escapeExpression(container.lambda((stack1 = depth0 != null ? lookupProperty(depth0, "snow") : depth0) != null ? lookupProperty(stack1, "1h") : stack1, depth0)) + " mm</p>\r\n";
+  },
+  "compiler": [8, ">= 4.3.0"],
+  "main": function main(container, depth0, helpers, partials, data) {
+    var stack1,
+      helper,
+      alias1 = depth0 != null ? depth0 : container.nullContext || {},
+      alias2 = container.hooks.helperMissing,
+      alias3 = "function",
+      alias4 = container.escapeExpression,
+      alias5 = container.lambda,
+      lookupProperty = container.lookupProperty || function (parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined;
+      };
+    return "\r\n<div class=\"card\">\r\n    <p>Name: " + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
+      "name": "name",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 13
+        },
+        "end": {
+          "line": 3,
+          "column": 21
+        }
+      }
+    }) : helper)) + "</p>\r\n    <p>Time: " + alias4((helper = (helper = lookupProperty(helpers, "locate") || (depth0 != null ? lookupProperty(depth0, "locate") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
+      "name": "locate",
       "hash": {},
       "data": data,
       "loc": {
@@ -1718,211 +1868,100 @@ var templateFunction = _handlebars.default.template({
         },
         "end": {
           "line": 4,
-          "column": 29
+          "column": 23
         }
       }
-    }) : helper)) + " alt=\"\">\r\n</div>\r\n<div class=\"information\">\r\n    <ul>\r\n        <li>\r\n            <p>Type: " + alias4((helper = (helper = lookupProperty(helpers, "type") || (depth0 != null ? lookupProperty(depth0, "type") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
-      "name": "type",
+    }) : helper)) + "</p>\r\n    <p>Main: " + alias4(alias5((stack1 = (stack1 = depth0 != null ? lookupProperty(depth0, "weather") : depth0) != null ? lookupProperty(stack1, "0") : stack1) != null ? lookupProperty(stack1, "main") : stack1, depth0)) + "</p>\r\n    <p>Description: " + alias4(alias5((stack1 = (stack1 = depth0 != null ? lookupProperty(depth0, "weather") : depth0) != null ? lookupProperty(stack1, "0") : stack1) != null ? lookupProperty(stack1, "description") : stack1, depth0)) + "</p>\r\n    <p>Temp: " + alias4(alias5((stack1 = depth0 != null ? lookupProperty(depth0, "main") : depth0) != null ? lookupProperty(stack1, "temp") : stack1, depth0)) + "°C</p>\r\n    <p>Feels like:" + alias4(alias5((stack1 = depth0 != null ? lookupProperty(depth0, "main") : depth0) != null ? lookupProperty(stack1, "feels_like") : stack1, depth0)) + "°C</p>\r\n    <p>Visibility:" + alias4((helper = (helper = lookupProperty(helpers, "visibility") || (depth0 != null ? lookupProperty(depth0, "visibility") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
+      "name": "visibility",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
           "line": 9,
-          "column": 21
+          "column": 18
         },
         "end": {
           "line": 9,
-          "column": 29
+          "column": 32
         }
       }
-    }) : helper)) + "</p>\r\n        </li>\r\n        <li>\r\n            <p>Tags: " + alias4((helper = (helper = lookupProperty(helpers, "tags") || (depth0 != null ? lookupProperty(depth0, "tags") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
-      "name": "tags",
-      "hash": {},
-      "data": data,
-      "loc": {
-        "start": {
-          "line": 12,
-          "column": 21
-        },
-        "end": {
-          "line": 12,
-          "column": 29
-        }
-      }
-    }) : helper)) + "</p>\r\n        </li>\r\n        <li>\r\n            <p>Likes: " + alias4((helper = (helper = lookupProperty(helpers, "likes") || (depth0 != null ? lookupProperty(depth0, "likes") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
-      "name": "likes",
-      "hash": {},
-      "data": data,
-      "loc": {
-        "start": {
-          "line": 15,
-          "column": 22
-        },
-        "end": {
-          "line": 15,
-          "column": 31
-        }
-      }
-    }) : helper)) + "</p>\r\n        </li>\r\n        <li>\r\n            <p>Comments: " + alias4((helper = (helper = lookupProperty(helpers, "comments") || (depth0 != null ? lookupProperty(depth0, "comments") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
-      "name": "comments",
-      "hash": {},
-      "data": data,
-      "loc": {
-        "start": {
-          "line": 18,
-          "column": 25
-        },
-        "end": {
-          "line": 18,
-          "column": 37
-        }
-      }
-    }) : helper)) + "</p>\r\n        </li>\r\n        <li>\r\n            <p>Downloads: " + alias4((helper = (helper = lookupProperty(helpers, "downloads") || (depth0 != null ? lookupProperty(depth0, "downloads") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
-      "name": "downloads",
-      "hash": {},
-      "data": data,
-      "loc": {
-        "start": {
-          "line": 21,
-          "column": 26
-        },
-        "end": {
-          "line": 21,
-          "column": 39
-        }
-      }
-    }) : helper)) + "</p>\r\n        </li>\r\n    </ul>\r\n</div>\r\n</div>\r\n";
-  },
-  "compiler": [8, ">= 4.3.0"],
-  "main": function main(container, depth0, helpers, partials, data) {
-    var stack1,
-      lookupProperty = container.lookupProperty || function (parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined;
-      };
-    return (stack1 = lookupProperty(helpers, "each").call(depth0 != null ? depth0 : container.nullContext || {}, depth0, {
-      "name": "each",
+    }) : helper)) + " m</p>\r\n    <p>Wind speed:" + alias4(alias5((stack1 = depth0 != null ? lookupProperty(depth0, "wind") : depth0) != null ? lookupProperty(stack1, "speed") : stack1, depth0)) + " meter/sec</p>\r\n    <p>Clouds:" + alias4(alias5((stack1 = depth0 != null ? lookupProperty(depth0, "clouds") : depth0) != null ? lookupProperty(stack1, "all") : stack1, depth0)) + "%</p>\r\n" + ((stack1 = lookupProperty(helpers, "if").call(alias1, (stack1 = depth0 != null ? lookupProperty(depth0, "rain") : depth0) != null ? lookupProperty(stack1, "1h") : stack1, {
+      "name": "if",
       "hash": {},
       "fn": container.program(1, data, 0),
       "inverse": container.noop,
       "data": data,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 0
+          "line": 12,
+          "column": 4
         },
         "end": {
-          "line": 26,
-          "column": 9
+          "line": 14,
+          "column": 11
         }
       }
-    })) != null ? stack1 : "";
+    })) != null ? stack1 : "") + ((stack1 = lookupProperty(helpers, "if").call(alias1, (stack1 = depth0 != null ? lookupProperty(depth0, "snow") : depth0) != null ? lookupProperty(stack1, "1h") : stack1, {
+      "name": "if",
+      "hash": {},
+      "fn": container.program(3, data, 0),
+      "inverse": container.noop,
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 4
+        },
+        "end": {
+          "line": 17,
+          "column": 12
+        }
+      }
+    })) != null ? stack1 : "") + "</div>\r\n";
   },
   "useData": true
 });
 var _default = templateFunction;
 exports.default = _default;
-},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"js/new-API.js":[function(require,module,exports) {
+},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"js/weather.js":[function(require,module,exports) {
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-// import imageTpl from '../templates/image.hbs';
-
-var API_KEY = '34021222-b9c8863f050204b598fd68392';
-var BASE_URL = 'https://pixabay.com/api/';
-var NewsApi = /*#__PURE__*/function () {
-  function NewsApi() {
-    _classCallCheck(this, NewsApi);
-    this.searchQuery = '', this.page = 1;
-  }
-  _createClass(NewsApi, [{
-    key: "fetchArticles",
-    value: function fetchArticles() {
-      return fetch("".concat(BASE_URL, "?key=").concat(API_KEY, "&q=").concat(this.searchQuery, "&per_page=9&page=").concat(this.page)).then(function (response) {
-        return response.json();
-      }).then(function (imgs) {
-        return imgs.hits;
-      }).then(function (img) {
-        return img;
-      });
-    }
-  }, {
-    key: "incrasePage",
-    value: function incrasePage() {
-      this.page += 1;
-    }
-  }, {
-    key: "resetPage",
-    value: function resetPage() {
-      this.page = 1;
-    }
-  }]);
-  return NewsApi;
-}(); // Andromeda
-// фіолетове щось там
-exports.default = NewsApi;
-},{}],"js/plagination.js":[function(require,module,exports) {
-"use strict";
-
-var _image = _interopRequireDefault(require("../templates/image.hbs"));
-var _newAPI = _interopRequireDefault(require("./new-API"));
+var _pocemonCards = _interopRequireDefault(require("../templates/pocemon-cards.hbs"));
+var _weather = _interopRequireDefault(require("../templates/weather.hbs"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var refs = {
-  searchForm: document.querySelector('.js-search-form'),
-  formInput: document.querySelector('.form-control'),
-  searchBtn: document.querySelector('.btn-primary'),
-  loadMoreBtn: document.querySelector('[data-action="load-more"]'),
-  imgContainer: document.querySelector('.js-card-container')
+  form: document.querySelector('.js-search-form'),
+  countainer: document.querySelector('.countainer')
 };
-var imgApiServis = new _newAPI.default();
-refs.searchForm.addEventListener('submit', onSubmit);
-refs.loadMoreBtn.addEventListener('click', onLoadMore);
-refs.formInput.addEventListener('input', checkingValue);
-function checkingValue(e) {
-  var value = e.currentTarget.value;
-  if (value === '') {
-    refs.searchBtn.disabled = true;
-  } else {
-    refs.searchBtn.disabled = false;
-  }
-}
-function onSubmit(e) {
+refs.form.addEventListener('submit', searchWeather);
+var key = '40207e285e43c5b8e49ba7f2599cdd4b';
+function searchWeather(e) {
   e.preventDefault();
-  refs.imgContainer.innerHTML = '';
-  imgApiServis.resetPage();
-  var form = e.currentTarget;
-  var value = form.elements.query.value;
-  imgApiServis.searchQuery = value;
-  form.elements.query.value = '';
-  imgApiServis.fetchArticles().then(createMurkup).catch(onError);
+  var city = e.target[0].value;
+  fetch("https://api.openweathermap.org/data/2.5/weather?q=".concat(city, "&appid=").concat(key, "&units=metric")).then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    // console.log(data)
+    var date = new Date();
+    var locate = date.toLocaleString(data.sys.country, {
+      hour: 'numeric',
+      minute: 'numeric'
+    });
+    console.log(locate);
+    var hours = date.toLocaleString(data.sys.country, {
+      hour: 'numeric'
+    });
+    console.log(hours);
+    data.locate = locate;
+    // console.log(data.snow); en-GB
+    var murkup = (0, _weather.default)(data, locate);
+    console.log(murkup);
+    refs.countainer.innerHTML = murkup;
+    refs.form.style.background = bg.dayClouds;
+  });
+  // console.log(city); timezone
 }
-;
-function onLoadMore() {
-  imgApiServis.incrasePage();
-  imgApiServis.fetchArticles().then(createMurkup);
-}
-function createMurkup(img) {
-  console.log(img);
-  var murkup = (0, _image.default)(img);
-  refs.imgContainer.insertAdjacentHTML('beforeend', murkup);
-}
-function onError() {
-  alert('Запит невірний(( Спробуйте ще раз!');
-  refs.imgContainer.innerHTML = '';
-  refs.loadMoreBtn.disabled = false;
-}
-},{"../templates/image.hbs":"templates/image.hbs","./new-API":"js/new-API.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../templates/pocemon-cards.hbs":"templates/pocemon-cards.hbs","../templates/weather.hbs":"templates/weather.hbs"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -2091,5 +2130,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/plagination.js"], null)
-//# sourceMappingURL=/plagination.cf7862d4.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/weather.js"], null)
+//# sourceMappingURL=/weather.2dcc02e5.js.map
