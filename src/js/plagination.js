@@ -40,6 +40,10 @@ function onSubmit(e) {
     imgApiServis.fetchArticles()
     .then(createMurkup)
     .catch(onError)
+
+    // if (imgApiServis.total === 0) {
+    //     console.log(imgApiServis.total);
+    // }
 };
 
 function onLoadMore() {

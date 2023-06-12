@@ -6,13 +6,18 @@ const BASE_URL = 'https://pixabay.com/api/'
 export default class NewsApi  {
     constructor (){
         this.searchQuery = '',
-        this.page = 1
+        this.page = 1,
+        this.total = 0
     }    
 
     fetchArticles(){
        return fetch(`${BASE_URL}?key=${API_KEY}&q=${this.searchQuery}&per_page=9&page=${this.page}`)
           .then(response=> response.json())
-          .then(imgs => imgs.hits)
+           .then(imgs => {
+               this.total = imgs.total;
+               console.log(this.total);
+               return imgs.hits
+           })
           .then(img => img)
             }
 

@@ -1844,14 +1844,17 @@ var BASE_URL = 'https://pixabay.com/api/';
 var NewsApi = /*#__PURE__*/function () {
   function NewsApi() {
     _classCallCheck(this, NewsApi);
-    this.searchQuery = '', this.page = 1;
+    this.searchQuery = '', this.page = 1, this.total = 0;
   }
   _createClass(NewsApi, [{
     key: "fetchArticles",
     value: function fetchArticles() {
+      var _this = this;
       return fetch("".concat(BASE_URL, "?key=").concat(API_KEY, "&q=").concat(this.searchQuery, "&per_page=9&page=").concat(this.page)).then(function (response) {
         return response.json();
       }).then(function (imgs) {
+        _this.total = imgs.total;
+        console.log(_this.total);
         return imgs.hits;
       }).then(function (img) {
         return img;
@@ -1906,6 +1909,10 @@ function onSubmit(e) {
   imgApiServis.searchQuery = value;
   form.elements.query.value = '';
   imgApiServis.fetchArticles().then(createMurkup).catch(onError);
+
+  // if (imgApiServis.total === 0) {
+  //     console.log(imgApiServis.total);
+  // }
 }
 ;
 function onLoadMore() {
@@ -1947,7 +1954,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61171" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57192" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
